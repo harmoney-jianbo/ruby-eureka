@@ -6,7 +6,6 @@ require "eureka/version"
 Gem::Specification.new do |spec|
   spec.name          = "ruby-eureka"
   spec.version       = Eureka::VERSION
-  spec.executables << 'sidecar'
   spec.authors       = ["Jianbo Cui"]
   spec.email         = ["jianbo.cui@harmoney.co.nz"]
 
@@ -31,6 +30,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables << 'sidecar'
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
