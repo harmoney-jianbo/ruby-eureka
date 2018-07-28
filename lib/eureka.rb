@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'eureka/railtie' if defined? Rails
 
 module Eureka
   autoload :Execute, 'eureka/execute'

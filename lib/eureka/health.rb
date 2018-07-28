@@ -9,8 +9,7 @@ module Eureka
 
     def call(env)
       @req = Rack::Request.new(env)
-
-      if @req.path == 'health.json'
+      if @req.path == '/health.json'
         [200, { 'Content-Type' => 'application/json' }, [ {status: 'UP'}.to_json ]]
       else
         @app.call(env)
