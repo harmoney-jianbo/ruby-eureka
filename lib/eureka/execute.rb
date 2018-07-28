@@ -4,7 +4,9 @@ module Eureka
   class Execute
     class << self
       def run
-        exec command
+        Dir.chdir(File.expand_path '../../..', __FILE__) do
+          exec command
+        end
       end
 
       def command

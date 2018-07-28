@@ -1,7 +1,16 @@
 #!/usr/bin/env ruby
 
 require 'eureka'
+require 'yaml'
+require 'erb'
 
+opts = {}
+opts = YAML.load(ERB.new(IO.read('config/eureka_sidecar.yml')).result) || opts
+
+Eureka.setup do |config|
+  config.side_app_name = opts.dig('eureka', 'side_app_name')
+  config.eureka_url    = opts.dig('eureka', 'url')
+end
 
 begin
   exe = Eureka::Execute
