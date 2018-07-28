@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'eureka'
+
+
+begin
+  exe = Eureka::Execute
+  exe.run
+rescue => e
+  raise e if $DEBUG
+  STDERR.puts e.message
+  STDERR.puts e.backtrace.join("\n")
+  exit 1
+end
