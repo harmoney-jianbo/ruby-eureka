@@ -9,8 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jianbo Cui"]
   spec.email         = ["jianbo.cui@harmoney.co.nz"]
 
-  spec.summary       = %q{A Ruby Wrapper around Eureka Sidecar}
-  # spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{A Ruby Wrapper for Eureka Sidecar client}
   spec.homepage      = "http://www.example.com"
   spec.license       = "MIT"
 

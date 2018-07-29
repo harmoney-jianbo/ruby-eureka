@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'eureka/railtie' if defined? Rails
 
 module Eureka
@@ -32,6 +33,14 @@ module Eureka
     @jar = jar
   end
 
+  def self.app_port
+    @app_port
+  end
+
+  def self.app_port=(app_port)
+    @app_port = app_port
+  end
+
   # Default way to set up Euraka
   def self.setup
     yield self
@@ -41,6 +50,7 @@ module Eureka
     @side_app_name = nil
     @eureka_url = nil
     @jar = 'bin/sidecar-1.0.jar'
+    @app_port = 3000
   end
 
   reset

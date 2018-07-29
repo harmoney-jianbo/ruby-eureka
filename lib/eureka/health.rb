@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# config.middleware.use "Eureka::Health"
 module Eureka
   class Health
     def initialize(app)

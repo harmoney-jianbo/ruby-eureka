@@ -11,7 +11,7 @@ class ExecuteTest < Minitest::Test
       config.eureka_url    = 'url'
       config.jar    = 'another_bin/sidecar-1.0.jar'
     end
-    options = 'another_bin/sidecar-1.0.jar --side-app-name=my_test_name --eureka-url=url'
+    options = 'another_bin/sidecar-1.0.jar --side-app-name=my_test_name --eureka-url=url/ --app-port=3000'
     assert_equal Eureka::Execute.options, options
   end
 
@@ -21,7 +21,7 @@ class ExecuteTest < Minitest::Test
       config.eureka_url    = 'url'
       config.jar    = 'another_bin/sidecar-1.0.jar'
     end
-    command = 'sh -c \'java -jar another_bin/sidecar-1.0.jar --side-app-name=my_test_name --eureka-url=url\''
+    command = 'sh -c \'java -jar another_bin/sidecar-1.0.jar --side-app-name=my_test_name --eureka-url=url/ --app-port=3000\''
     assert_equal Eureka::Execute.command, command
   end
 
@@ -35,6 +35,13 @@ class ExecuteTest < Minitest::Test
   def test_eureka_url
     Eureka.setup do |config|
       config.eureka_url    = 'http://eureka:9999/eureka/'
+    end
+    assert_equal Eureka::Execute.eureka_url, '--eureka-url=http://eureka:9999/eureka/'
+  end
+
+  def test_eureka_url_with_trailing_slash
+    Eureka.setup do |config|
+      config.eureka_url    = 'http://eureka:9999/eureka'
     end
     assert_equal Eureka::Execute.eureka_url, '--eureka-url=http://eureka:9999/eureka/'
   end

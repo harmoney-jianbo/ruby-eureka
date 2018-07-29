@@ -1,10 +1,6 @@
 # Ruby::Eureka
 
-<!-- sh -c 'java -jar bin/sidecar-1.0.jar --side-app-name=cloud-rails --eureka-url=http://eureka:8761/eureka/' -->
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby/eureka`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+[![Build Status](https://travis-ci.org/harmoney-jianbo/ruby-eureka.svg?branch=master)](https://travis-ci.org/harmoney-jianbo/ruby-eureka)
 
 ## Installation
 
@@ -22,9 +18,21 @@ Or install it yourself as:
 
     $ gem install ruby-eureka
 
+Create YAML config files config/eureka_sidecar.yml
+
+    ---
+    eureka:
+      side_app_name: side_app_name
+      url: http://eureka:8761/eureka/
+      app_port: 3001 (Optional default to 3000)
+
+Run the bundle exec command from the application root directory
+
+    bundle exec sidecar
+
 ## Usage
 
-TODO: Write usage instructions here
+Register Ruby application with Eureka server
 
 ## Development
 
