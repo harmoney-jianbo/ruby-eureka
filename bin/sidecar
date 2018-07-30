@@ -4,13 +4,14 @@ require 'eureka'
 require 'yaml'
 require 'erb'
 
-opts = {}
-opts = YAML.load(ERB.new(IO.read('config/eureka_sidecar.yml')).result) || opts
+opt = {}
+opt = YAML.load(ERB.new(IO.read('config/eureka_sidecar.yml')).result) || opts
 
 Eureka.setup do |config|
-  config.side_app_name = opts['eureka']['side_app_name']
-  config.eureka_url    = opts['eureka']['url']
-  config.app_port      = opts['eureka']['app_port'] if opts['eureka']['app_port']
+  config.side_app_name = opt['eureka']['service_name']
+  config.eureka_url    = opt['eureka']['url']
+  config.app_port      = opt['service']['port'] if opt['service'] && opt['service']['port']
+  config.sidecar_port  = opt['sidecar']['port'] if opt['sidecar'] && opt['sidecar']['port']
 end
 
 begin

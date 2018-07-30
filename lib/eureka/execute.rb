@@ -5,6 +5,7 @@ module Eureka
     class << self
       def run
         Dir.chdir(File.expand_path '../../..', __FILE__) do
+          p command
           exec command
         end
       end
@@ -14,13 +15,17 @@ module Eureka
       end
 
       def options
-        %w[jar_path side_app_name eureka_url app_port].map do |option|
+        %w[jar_path side_app_name eureka_url app_port sidecar_port].map do |option|
           send(option)
         end.join(' ')
       end
 
       def jar_path
         Eureka.jar
+      end
+
+      def sidecar_port
+        "--sidecar-port=#{Eureka.sidecar_port}"
       end
 
       def side_app_name

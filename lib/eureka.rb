@@ -41,6 +41,14 @@ module Eureka
     @app_port = app_port
   end
 
+  def self.sidecar_port
+    @sidecar_port
+  end
+
+  def self.sidecar_port=(sidecar_port)
+    @sidecar_port = sidecar_port
+  end
+
   # Default way to set up Euraka
   def self.setup
     yield self
@@ -51,6 +59,7 @@ module Eureka
     @eureka_url = nil
     @jar = 'bin/sidecar-1.0.jar'
     @app_port = 3000
+    @sidecar_port = 9090
   end
 
   reset
