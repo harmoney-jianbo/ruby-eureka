@@ -22,9 +22,12 @@ Create YAML config files config/eureka_sidecar.yml
 
     ---
     eureka:
-      side_app_name: side_app_name
-      url: http://eureka:8761/eureka/
-      app_port: 3001 (Optional default to 3000)
+      service_name: service-a
+      url: http://localhost:8761/eureka/
+    service:
+      port: 3000 (Optional default to 3000)
+    sidecar:
+      port: 9091 (Optional default to 9090)
 
 Run the bundle exec command from the application root directory
 
