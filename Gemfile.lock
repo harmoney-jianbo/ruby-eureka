@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-eureka (0.0.3)
+    ruby_eureka (0.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -16,7 +16,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   minitest (~> 5.0)
   rake (~> 10.0)
-  ruby-eureka!
+  ruby_eureka!
 
 BUNDLED WITH
    1.16.2

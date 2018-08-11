@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "eureka/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "ruby-eureka"
+  spec.name          = "ruby_eureka"
   spec.version       = Eureka::VERSION
   spec.authors       = ["Jianbo Cui"]
   spec.email         = ["jianbo.cui@harmoney.co.nz"]
