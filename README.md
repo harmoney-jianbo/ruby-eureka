@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruby-eureka'
+gem 'ruby_eureka'
 ```
 
 And then execute:
