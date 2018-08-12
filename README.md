@@ -16,11 +16,10 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ruby-eureka
+    $ gem install ruby_eureka
 
 Create YAML config files config/eureka_sidecar.yml
 
-    ---
     eureka:
       service_name: service-a
       url: http://localhost:8761/eureka/
@@ -28,7 +27,7 @@ Create YAML config files config/eureka_sidecar.yml
       port: 3000 (Optional default to 3000)
     sidecar:
       port: 9091 (Optional default to 9090)
-      instance_id: service-a:9091 (Optional, required when register multiple instances of the same service)
+      instance_id: service-a:9091 (Optional, required when registering multiple instances)
 
 Run the bundle exec command from the application root directory
 
