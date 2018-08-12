@@ -28,6 +28,7 @@ Create YAML config files config/eureka_sidecar.yml
       port: 3000 (Optional default to 3000)
     sidecar:
       port: 9091 (Optional default to 9090)
+      instance_id: service-a:9091 (Optional, required when register multiple instances of the same service)
 
 Run the bundle exec command from the application root directory
 

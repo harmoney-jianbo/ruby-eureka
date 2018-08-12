@@ -15,13 +15,17 @@ module Eureka
       end
 
       def options
-        %w[jar_path side_app_name eureka_url app_port sidecar_port].map do |option|
+        %w[jar_path side_app_name eureka_url app_port sidecar_port instance_id].map do |option|
           send(option)
-        end.join(' ')
+        end.select{ |option| !option.to_s.strip.empty? }.join(' ')
       end
 
       def jar_path
         Eureka.jar
+      end
+
+      def instance_id
+        "--instance-id=#{Eureka.instance_id}" if Eureka.instance_id
       end
 
       def sidecar_port

@@ -5,6 +5,27 @@ class ExecuteTest < Minitest::Test
     Eureka.reset
   end
 
+  def test_options_without_instance_id
+    Eureka.setup do |config|
+      config.side_app_name    = 'my_test_name'
+      config.eureka_url    = 'url'
+      config.jar    = 'another_bin/sidecar-1.0.jar'
+    end
+    options = 'another_bin/sidecar-1.0.jar --side-app-name=my_test_name --eureka-url=url/ --app-port=3000 --sidecar-port=9090'
+    assert_equal Eureka::Execute.options, options
+  end
+
+
+  def test_options_with_instance_id
+    Eureka.setup do |config|
+      config.side_app_name    = 'my_test_name'
+      config.eureka_url    = 'url'
+      config.jar    = 'another_bin/sidecar-1.0.jar'
+      config.instance_id = 'service-a:9988'
+    end
+    assert_match /--instance-id=service-a:9988/, Eureka::Execute.options
+  end
+
   def test_options_without_sidecar_port
     Eureka.setup do |config|
       config.side_app_name    = 'my_test_name'

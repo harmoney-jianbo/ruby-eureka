@@ -49,12 +49,21 @@ module Eureka
     @sidecar_port = sidecar_port
   end
 
+  def self.instance_id
+    @instance_id
+  end
+
+  def self.instance_id=(instance_id)
+    @instance_id = instance_id
+  end
+
   # Default way to set up Euraka
   def self.setup
     yield self
   end
 
   def self.reset
+    @instance_id = nil
     @side_app_name = nil
     @eureka_url = nil
     @jar = 'bin/sidecar-1.0.jar'
