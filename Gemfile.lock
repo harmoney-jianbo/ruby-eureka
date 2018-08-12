@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_eureka (0.0.3)
+    ruby_eureka (0.0.4)
 
 GEM
   remote: https://rubygems.org/
